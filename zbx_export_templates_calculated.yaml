@@ -1,0 +1,64 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-05-31T07:03:56Z'
+  groups:
+    -
+      uuid: 6e323e24976a4d09a52d87d4e67f692e
+      name: 'Template Dashboard'
+  templates:
+    -
+      uuid: cb313bb30fea43ceb40f2cd110118c25
+      template: Calculated
+      name: New_Calculated
+      groups:
+        -
+          name: 'Template Dashboard'
+      items:
+        -
+          uuid: 4b33661234044a709f3c9c08a123e400
+          name: 'Total Device Available'
+          type: CALCULATED
+          key: ap.available
+          delay: 55s
+          history: 2d
+          params: 'sum(last_foreach(/*/icmpping?[group="{HOST.NAME}"]))'
+        -
+          uuid: aa2fe01142f94ac481202bb5beb18b0e
+          name: 'Total Device Not Available'
+          type: CALCULATED
+          key: ap.na
+          delay: 58s
+          history: 2d
+          params: 'last(//ap.total)- last(//ap.available)'
+        -
+          uuid: a3da537930934cafa6ba60b1c570c99f
+          name: 'Total Device'
+          type: CALCULATED
+          key: ap.total
+          delay: 55s
+          history: 2d
+          params: 'sum(last_foreach(/*/constant?[group="{HOST.NAME}"]))'
+        -
+          uuid: 44f005c3665b42a6b9d471d2acff388d
+          name: 'Total Router Available'
+          type: CALCULATED
+          key: router.available
+          delay: 55s
+          history: 2d
+          params: 'sum(last_foreach(/*/icmpping?[group="{HOST.NAME}" and group="Mikrotik router"]))'
+        -
+          uuid: 19e93c0f8c3f48258df7255f4b4233d9
+          name: 'Total Router Not Available'
+          type: CALCULATED
+          key: router.na
+          delay: 58s
+          history: 2d
+          params: 'last(//router.total)- last(//router.available)'
+        -
+          uuid: 8419500a7ff04666afb791f16437f5eb
+          name: 'Total Router'
+          type: CALCULATED
+          key: router.total
+          delay: 55s
+          history: 2d
+          params: 'sum(last_foreach(/*/constant?[group="{HOST.NAME}" and group="Mikrotik router"]))'
