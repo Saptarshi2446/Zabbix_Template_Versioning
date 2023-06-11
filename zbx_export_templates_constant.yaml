@@ -9,7 +9,7 @@ zabbix_export:
     -
       uuid: da064d726ddc4e5ab5c08d5c73c39dc0
       template: Constant
-      name: Constant
+      name: Constant_new
       groups:
         -
           name: 'Template Dashboard'
