@@ -1,0 +1,30 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-05-31T07:03:39Z'
+  groups:
+    -
+      uuid: 6e323e24976a4d09a52d87d4e67f692e
+      name: 'Template Dashboard'
+  templates:
+    -
+      uuid: da064d726ddc4e5ab5c08d5c73c39dc0
+      template: Constant
+      name: Constant
+      groups:
+        -
+          name: 'Template Dashboard'
+      items:
+        -
+          uuid: c395c22207f84d66ad7403dbc196b5c3
+          name: 'Constant Value :1'
+          type: CALCULATED
+          key: constant
+          delay: 1d
+          history: 2d
+          trends: '0'
+          params: '{$CONSTANT}'
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED
+              parameters:
+                - ''
