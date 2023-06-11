@@ -9,7 +9,7 @@ zabbix_export:
     -
       uuid: cb313bb30fea43ceb40f2cd110118c25
       template: Calculated
-      name: New_3_Calculated
+      name: New_4_Calculated
       groups:
         -
           name: 'Template Dashboard'
